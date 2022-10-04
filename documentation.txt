@@ -1,0 +1,17 @@
+Do not add forget to add an image field to the articles in their list cards
+
+So I'm having a little issue rendering my rdit page cause i keep getting 
+TemplateDoesNotExist error because it keeps loading article)form instead of
+article_edit (Hence I'll be renaming article_edit to article form)
+
+I'm also thinking a logo before the Newspaper name like we did in the DebPay project logo
+
+LoginRequiredMixin
+The LoginRequiredMixin doesn't seem to be working for now so i'll have to try again
+I don't kmow if i set it up right
+
+
+
+SUPER USER
+USERNAME: ghoul
+PASSWIRD: the obvious
