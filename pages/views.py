@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 import requests
 from articles.models import Article
+from .forms import ContactForm
 
 def quotes(request):
     url = "https://anime-quotes1.p.rapidapi.com/api/random"
@@ -31,3 +32,15 @@ def privacy(request):
 
 def faqs(request):
     return render(request, 'faqs.html')
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            return redirect("/")
+
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact_us.html', {'form':form})
