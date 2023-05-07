@@ -44,3 +44,27 @@ def contact_us(request):
         form = ContactForm()
 
     return render(request, 'contact_us.html', {'form':form})
+
+#def anime_search(request):
+ #  if request.method == 'POST':
+  #      query = request.POST.get('query')
+   #     url = "https://myanimelist.p.rapidapi.com/anime/search/"
+    #    params = {'query':query}
+     #   response = requests.get(url, params=params)
+      #  results = response.json()
+       # return render(request, 'search_result.html', {'results':results})
+
+#    else:
+ #       return render(request, 'search.html')
+
+def anime_search(request):
+    if request.method == "GET" and 'q' in request.GET:
+        query = request.GET.get('q')
+        url = "https://myanimelist.p.rapidapi.com/anime/search/"
+        params = {"term": query, "media": "music"}
+        headers = {"X-RapidAPI-Key": "f15dddb01emsh31ed767ac397d6ep1c0e83jsn2e32396186cb"}
+        response = requests.get(url, headers=headers, params=params)
+        results = response.json()
+        return render(request, 'search_results.html', {'results': results['results'], 'query': query})
+    else:
+        return render(request, 'search.html')

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+<h1>Search Result</h1>
+
+<ul>
+    {% for result in results %}
+        <li>{{ result.picture_url }}</li>
+        <li>{{ result.title }}</li>
+        <li>{{ result.description }}</li>
+        
+    {% else %}
+        <p>No results found for "{{ result }}".</p>
+    {% endfor %}
+</ul>

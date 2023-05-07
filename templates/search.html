@@ -2,8 +2,9 @@
 
 {% block content %}
 <div>
-    <form class="form-inline my-3 my-lg-0">
-        <input type="search" name="query" class="form-control mr-sm-2" placeholder="Search" aria-label="search">
+    <form action="{% url 'search' %}" class="form-inline my-3 my-lg-0" method="post">
+        {% csrf_token %}
+        <input type="text" name="q" class="form-control mr-sm-2" placeholder="Search" aria-label="search">
         <button class="btn btn-outline-primary my-3 mr-sm-0" type="submit">Search</button>
     </form>
 </div>
